@@ -1,4 +1,4 @@
 quickpong
 =========
 
-Quickpong-server based on Python framework Twisted
+Quickpong-server based on Python framework Twisted (see http://quickpong.com)
