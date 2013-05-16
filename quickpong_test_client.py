@@ -20,8 +20,8 @@ import simplejson as json
 
 host = 'kece.ru'
 port = 10080
-#max_clients = 500
-max_clients = 1
+max_clients = 500
+#max_clients = 1
 
 
 class QuickpongTestClient():

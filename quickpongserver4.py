@@ -37,7 +37,7 @@ host = 'kece.ru'
 port = 10080
 policy_port = 10081
 stats_port = 10082
-max_clients = 1000
+max_clients = 10000
 
 top_service = service.MultiService()
 
