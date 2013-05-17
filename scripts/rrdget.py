@@ -39,15 +39,19 @@ rrdtool.graph(gamespng, "--start", "-1d", "--vertical-label=gamers and games",
  "DEF:gamers=" + gamesdb + ":gamers:AVERAGE:step=1",
  "DEF:games=" + gamesdb + ":games:AVERAGE:step=1",
  "AREA:games#00FF00:Games",
- "LINE1:gamers#0000FF:Gamers\\r",
+ "LINE1:gamers#0000FF:Gamers",
  "COMMENT:\\n",
  "GPRINT:gamers:AVERAGE:Avg gamers online\: %6.2lf",
- "COMMENT: ",
+ "COMMENT:\\n",
  "GPRINT:gamers:MAX:Max gamers online\: %6.2lf",
  "COMMENT:\\n",
+ "GPRINT:gamers:LAST:Last gamers online\: %6.2lf",
+ "COMMENT:\\n",
  "GPRINT:games:AVERAGE:Avg games\: %6.2lf",
- "COMMENT: ",
- "GPRINT:games:MAX:Max games\: %6.2lf")
+ "COMMENT:\\n",
+ "GPRINT:games:MAX:Max games\: %6.2lf",
+ "COMMENT:\\n",
+ "GPRINT:games:LAST:Last games\: %6.2lf")
 
 
 p = psutil.Process(int(pid))
@@ -65,12 +69,16 @@ rrdtool.graph(memorypng, "--start", "-1d", "--vertical-label=rss and vms in Mb",
  "CDEF:rssmb=rss,1048576,/",
  "CDEF:vmsmb=vms,1048576,/",
  "GPRINT:rssmb:AVERAGE:Avg RSS\: %6.2lf %SMb",
- "COMMENT: ",
- "GPRINT:rssmb:MAX:Max RSS\: %6.2lf %SMb\\r",
- "COMMENT: ",
+ "COMMENT:\\n",
+ "GPRINT:rssmb:MAX:Max RSS\: %6.2lf %SMb",
+ "COMMENT:\\n",
+ "GPRINT:rssmb:LAST:Last RSS\: %6.2lf %SMb",
+ "COMMENT:\\n",
  "GPRINT:vmsmb:AVERAGE:Avg VMS\: %6.2lf %SMb",
- "COMMENT: ",
- "GPRINT:vmsmb:MAX:Max VMS\: %6.2lf %SMb")
+ "COMMENT:\\n",
+ "GPRINT:vmsmb:MAX:Max VMS\: %6.2lf %SMb",
+ "COMMENT:\\n",
+ "GPRINT:vmsmb:LAST:Last VMS\: %6.2lf %SMb")
 
 
 
@@ -82,11 +90,13 @@ if res:
 
 rrdtool.graph(cpupng, "--start", "-1d", "--vertical-label=CPU",
  "DEF:cpu=" + cpudb + ":cpu:AVERAGE:step=1",
- "LINE1:cpu#00FF00:CPU\\r",
+ "LINE1:cpu#00FF00:CPU",
  "COMMENT:\\n",
  "GPRINT:cpu:AVERAGE:Avg CPU usage\: %6.2lf",
  "COMMENT:\\n",
  "GPRINT:cpu:MIN:Min CPU usage\: %6.2lf",
  "COMMENT:\\n",
- "GPRINT:cpu:MAX:Max CPU usage\: %6.2lf")
+ "GPRINT:cpu:MAX:Max CPU usage\: %6.2lf",
+ "COMMENT:\\n",
+ "GPRINT:cpu:LAST:Last CPU usage\: %6.2lf")
 
